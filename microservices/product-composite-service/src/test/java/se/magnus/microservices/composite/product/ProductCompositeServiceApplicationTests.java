@@ -26,13 +26,14 @@ class ProductCompositeServiceApplicationTests {
   private static final int PRODUCT_ID_NOT_FOUND = 2;
   private static final int PRODUCT_ID_INVALID = 3;
 
-  @Autowired private WebTestClient client;
+  @Autowired
+  private WebTestClient client;
 
-  @MockBean private ProductCompositeIntegration compositeIntegration;
+  @MockBean
+  private ProductCompositeIntegration compositeIntegration;
 
   @BeforeEach
   void setUp() {
-
     when(compositeIntegration.getProduct(PRODUCT_ID_OK))
       .thenReturn(new Product(PRODUCT_ID_OK, "name", 1, "mock-address"));
     when(compositeIntegration.getRecommendations(PRODUCT_ID_OK))
